@@ -23,71 +23,42 @@ Route::get('/', function(){
 /**
 *	权限管理 控制器名称为 PowerController.php 
 */
-Route::get('/power', function(){
-	echo 'asdsdas';
-	//return view('power/index');
-});
+Route::get('/power','PowerController@index');
 
 /**
 *	会员管理  控制器为  VipController.php 
 */
-Route::get('/vip', function(){
-	return view('vip/list');
-});
-Route::get('/viprank', function(){
-	return view('vip/rank');
-});
-
-
+Route::get('/vip','VipController@index');
+Route::get('/rank','VipController@rank');
 
 /**
 *	地区管理 控制器为 AreaController.php
 */
-Route::get('/area', function(){
-	return view('area/list');
-});
+Route::get('/area','AreaController@index');
+Route::get('/addarea','AreaController@addarea');
 
-Route::get('/addarea', function(){
-	return view('area/addarea');
-});
 
 
 /**
 *	分类管理 控制器为 TypeController.php
 */
 
-Route::get('/consume', function(){
-	return view('type/consume');	//消费分类
-});
-Route::get('/job', function(){
-	return view('type/job');	//兼职分类
-});
+Route::get('/consume','TypeController@consume');
+Route::get('/job','TypeController@job');
 
 /**
 *	门店管理 控制器为	ShopController.php
 */
-Route::get('/shop', function(){
-	return view('shop/list');
-});
-
-Route::get('/addshop', function(){
-	return view('shop/addshop');
-});
+Route::get('/shop','ShopController@index');
+Route::get('/addshop','ShopController@addshop');
 
 
 /**
-*	订单管理 控制器为 OrderContrller.php
+*	订单管理 控制器为 OrderController.php
 */
-Route::get('/oldorder', function(){
-	
-	return view('order/oldorder');
-});
-
-Route::get('/neworder', function(){
-	
-	return view('order/neworder');
-});
-
+Route::get('/oldorder','OrderController@oldorder');
+Route::get('/neworder','OrderController@neworder');
+//return view('order/neworder');
 
 
 
