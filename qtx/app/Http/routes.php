@@ -36,17 +36,25 @@ Route::get('/rank','VipController@rank');
 */
 Route::get('/area','AreaController@index');
 Route::get('/addarea','AreaController@addarea');
-Route::get('/del_area','AreaController@del_area');
-Route::post('/insertarea','AreaController@insertarea');
+
 
 
 /**
 *	分类管理 控制器为 TypeController.php
 */
 
-Route::get('/consume','TypeController@consume');
-Route::get('/job','TypeController@job');
-
+Route::group(['prefix' => ''], function () {
+    Route::get('/typeconsume','TypeController@consume');
+    Route::get('/typejob','TypeController@job');
+    Route::get('/typeindex','TypeController@index');
+    Route::get('/typelistdel','TypeController@xiaodel');
+    Route::get('/typeupdate','TypeController@updatelist');
+    Route::post('/typepost','TypeController@updatepost');
+    Route::get('/typeaddlist',function(){
+        return view('type.addlist');
+    });
+    Route::post('/typeaddbuy','TypeController@addbuy');
+});
 /**
 *	门店管理 控制器为	ShopController.php
 */
