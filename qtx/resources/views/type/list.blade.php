@@ -36,7 +36,7 @@
 				
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h3 class="panel-title">消费分类列表</h3>
+							<a  href="typeaddlist"><button class='btn btn-blue'>添加分类</button></a>
 							
 							<div class="panel-options">
 

@@ -49,32 +49,32 @@
                     </div>
                 </div>
                 <div class="panel-body">
-                    {!! Form::open(array('url' => '/typepost','class' => 'form-horizontal','role'=>'form')) !!}
-                    {!! Form::hidden('consumption_id', $result->consumption_id) !!}
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label" for="field-1">分类名称</label>
+                    {!! Form::open(array('url' => '/typeaddbuy','class' => 'form-horizontal','role'=>'form')) !!}
 
-                            <div class="col-sm-10">
-                                {!! Form::text('consumption_name','',['class' => 'form-control','id' => 'field-1','value' => $result->consumption_name]) !!}
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="field-1">分类名称</label>
 
-                            </div>
+                        <div class="col-sm-10">
+                            {!! Form::text('consumption_name','',['class' => 'form-control','id' => 'field-1']) !!}
+
                         </div>
+                    </div>
 
-                        <div class="form-group-separator"></div>
+                    <div class="form-group-separator"></div>
 
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label" for="field-2">状态</label>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="field-2">状态</label>
 
-                            <div class="col-sm-10">
-                               开启:  &nbsp;{!! Form::radio('status', '1',$result->status==1?true:'') !!} &nbsp;&nbsp;     关闭:&nbsp;  {!! Form::radio('status', '0',$result->status==0?true:'') !!}
-                            </div>
+                        <div class="col-sm-10">
+                            开启:  &nbsp;{!! Form::radio('status', '1') !!} &nbsp;&nbsp;     关闭:&nbsp;  {!! Form::radio('status', 0) !!}
                         </div>
+                    </div>
 
-                        <div class="form-group-separator"></div>
+                    <div class="form-group-separator"></div>
 
                     {!! Form::submit('修改',['class' => 'btn btn-blue']) !!}
                     {!! Form::close() !!}
-                    <p>错误提示 :</p>
+
                     @include('errors.error')
 
                 </div>
