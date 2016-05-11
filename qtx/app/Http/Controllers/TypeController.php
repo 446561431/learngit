@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use DB;
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateConsumptionRequest;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -61,7 +62,35 @@ class TypeController extends Controller {
     /**
      * 修改表单提交,数据验证
      */
-    public function updatepost(Request $request){
-        print_r($request->input());
+    public function updatepost(CreateConsumptionRequest $request){
+        $requests = $request->all();
+        $cons = Consumption::where('consumption_id', '=', $requests['consumption_id'])->first();
+        // 修改属性
+        $cons->consumption_name = $requests['consumption_name'];
+        $cons->status = $requests['status'];
+        $cons->update_time = time();
+        // 保存
+        if($cons->save()){
+            echo "<script>alert('修改成功');location.href='typeindex'</script>";
+        }else{
+            echo "<script>alert('修改失败');location.href='typeindex'</script>";
+        }
     }
+
+    /**
+     * 添加消费分类
+     */
+    public function  addbuy(CreateConsumptionRequest $request){
+        $requests = $request->all();
+        $requests['create_time'] = time();
+        $requests['update_time'] =time();
+        unset($requests['_token']);
+        if(Consumption::create($requests)){
+            echo "<script>alert('修改成功');location.href='typeindex'</script>";
+        }else{
+            echo "<script>alert('修改失败');location.href='typeindex'</script>";
+        }
+    }
+
+
 }
