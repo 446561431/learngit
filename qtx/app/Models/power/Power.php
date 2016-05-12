@@ -1,6 +1,6 @@
 <?php
 
-namespace App\models;
+namespace App\power\models;
 
 use DB;
 use Illuminate\Foundation\Auth\User as Authenticatable;
