@@ -19,7 +19,7 @@
 	<link rel="stylesheet" href="assets/css/xenon-components.css">
 	<link rel="stylesheet" href="assets/css/xenon-skins.css">
 	<link rel="stylesheet" href="assets/css/custom.css">
-
+	<link rel="stylesheet" href="assets/css/tinyselect.css">
 	<script src="assets/js/jquery-1.11.1.min.js"></script>
 
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -922,6 +922,7 @@
 
 	<!-- JavaScripts initializations and stuff -->
 	<script src="assets/js/xenon-custom.js"></script>
-
+	<script src="assets/js/tinyselect.js"></script>
+	
 </body>
 </html>	
