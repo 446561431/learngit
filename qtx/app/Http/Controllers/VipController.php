@@ -13,7 +13,7 @@ use DB;
 header("content-type:text/html;charset=utf-8");
     class VipController extends Controller {   
 
-    	/**
+    	/**  
 		 *	会员管理首页
 		 *	分页，返回查询数据
     	*/
