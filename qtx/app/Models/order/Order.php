@@ -123,8 +123,8 @@ class Order extends Authenticatable
             ->orderBy('qtx_user_order.create_at', 'desc')
             ->where('qtx_user_order.pay_status','!=', 2)
             ->where('qtx_user_order.create_at','>',$ctime)
-            ->where('qtx_user_order.create_at','<',$utime)
-            ->paginate(4); 
+            ->where('qtx_user_order.create_at','<',$utime)   
+		    ->paginate(4);
         return $orders;
     
     
