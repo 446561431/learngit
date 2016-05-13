@@ -245,7 +245,7 @@
 						</a>
 						<ul>
 							<li>
-								<a href="{{ url('/consume') }}">
+								<a href="{{ url('/typeindex') }}">
 									<span class="title">消费分类</span>
 								</a>
 							</li>
