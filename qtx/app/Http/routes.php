@@ -24,6 +24,22 @@ Route::get('/', function(){
 *	权限管理 控制器名称为 PowerController.php 
 */
 Route::get('/power','PowerController@index');
+Route::get('/powerdel/id={id}','PowerController@del');
+Route::get('/powerup&id={id}','PowerController@uplist');
+Route::post('/powerupdate','PowerController@update');
+Route::get('/poweraddform',function(){
+    return view('power.add');
+});
+Route::post('/poweradd','PowerController@add');
+Route::get('/rolelist', 'PowerController@rolelist');
+Route::get('/roleaddform', function(){
+    return view('power.roleadd');
+});
+Route::post('/roleadd','PowerController@roleadd');
+Route::get('/roledel/id={id}', 'PowerController@roledel');
+Route::get('/roleup&id={id}', 'PowerController@roleup');
+Route::post('/roleupdate','PowerController@roleupdate');
+
 
 /**
 *	会员管理  控制器为  VipController.php 
@@ -52,7 +68,6 @@ Route::post('/insertarea','AreaController@insertarea');
 /**
 *	分类管理 控制器为 TypeController.php
 */
-
 Route::group(['prefix' => ''], function () {
     Route::get('/typeconsume','TypeController@consume');
     Route::get('/typejob','TypeController@job');
@@ -65,6 +80,8 @@ Route::group(['prefix' => ''], function () {
     });
     Route::post('/typeaddbuy','TypeController@addbuy');
 });
+
+
 /**
 *	门店管理 控制器为	ShopController.php
 */
