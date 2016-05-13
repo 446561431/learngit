@@ -82,7 +82,7 @@ class Order extends Authenticatable
         return $re;
     }
    /**
-    *   根据条件搜索订单
+    *   删除订单
     * return bool
     */
     function search($order_id){
@@ -90,5 +90,45 @@ class Order extends Authenticatable
         $re = DB::delete("delete  from qtx_user_order where order_id = ?", [$order_id]);
         return $re;
     }
-  
+  /**
+    *   根据条件搜索订单
+    * return bool
+    */
+    function yisearch($ctime,$utime){
+     
+     //  $orders = DB::select("select qtx_user_order.*,qtx_user_stu.user_id,qtx_user_stu.user_name,qtx_shop.shop_id,qtx_shop.shop_name from qtx_user_order left join qtx_shop on qtx_user_order.shop_id=qtx_shop.shop_id left join qtx_user_stu on qtx_user_order.user_id=qtx_user_stu.user_id where qtx_user_order.pay_status=2 and $where order by qtx_user_order.create_at desc");
+      
+        $orders = DB::table('qtx_user_order')
+            ->leftjoin('qtx_user_stu', 'qtx_user_stu.user_id', '=', 'qtx_user_order.user_id')
+            ->leftjoin('qtx_shop', 'qtx_shop.shop_id', '=', 'qtx_user_order.shop_id')
+            ->select('qtx_user_order.*', 'qtx_user_stu.user_id', 'qtx_user_stu.user_name', 'qtx_shop.shop_id', 'qtx_shop.shop_name')
+            ->orderBy('qtx_user_order.create_at', 'desc')
+            ->where('qtx_user_order.pay_status','!=', 2)
+            ->where('qtx_user_order.create_at','>',$ctime)
+            ->where('qtx_user_order.create_at','<',$utime)
+            ->paginate(4);
+        return $orders;
+        
+    }
+  /**
+    *  根据条件搜索订单  未结算的
+    * return bool
+    */
+    function weisearch($ctime,$utime){
+    
+        $orders = DB::table('qtx_user_order')
+            ->leftjoin('qtx_user_stu', 'qtx_user_stu.user_id', '=', 'qtx_user_order.user_id')
+            ->leftjoin('qtx_shop', 'qtx_shop.shop_id', '=', 'qtx_user_order.shop_id')
+            ->select('qtx_user_order.*', 'qtx_user_stu.user_id', 'qtx_user_stu.user_name', 'qtx_shop.shop_id', 'qtx_shop.shop_name')
+            ->orderBy('qtx_user_order.create_at', 'desc')
+            ->where('qtx_user_order.pay_status','!=', 2)
+            ->where('qtx_user_order.create_at','>',$ctime)
+            ->where('qtx_user_order.create_at','<',$utime)
+            ->paginate(4);
+        return $orders;
+     
+    
+      
+        
+    }
 }
