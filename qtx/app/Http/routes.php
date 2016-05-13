@@ -68,6 +68,7 @@ Route::post('/insertarea','AreaController@insertarea');
 /**
 *	分类管理 控制器为 TypeController.php
 */
+
 Route::group(['prefix' => ''], function () {
     Route::get('/typeconsume','TypeController@consume');
     Route::get('/typejob','TypeController@job');
@@ -80,6 +81,7 @@ Route::group(['prefix' => ''], function () {
     });
     Route::post('/typeaddbuy','TypeController@addbuy');
 });
+
 
 
 /**
@@ -99,6 +101,7 @@ Route::get('/orderdel','OrderController@del');
 Route::get('/noorder','OrderController@noorder');
 Route::get('/yisearch','OrderController@yisearch');
 Route::get('/weisearch','OrderController@weisearch');
+
 //return view('order/neworder');
 
 
