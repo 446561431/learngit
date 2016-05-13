@@ -274,12 +274,12 @@
 						</a>
 						<ul>
 							<li>
-								<a href="{{ url('/order') }}">
+								<a href="{{ url('/oldorder') }}">
 									<span class="title">已结算订单</span>
 								</a>
 							</li>
 							<li>
-								<a href="{{ url('/newarea') }}">
+								<a href="{{ url('/neworder') }}">
 									<span class="title">未结算订单</span>
 								</a>
 							</li>

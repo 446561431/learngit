@@ -24,18 +24,44 @@ Route::get('/', function(){
 *	权限管理 控制器名称为 PowerController.php 
 */
 Route::get('/power','PowerController@index');
+Route::get('/powerdel/id={id}','PowerController@del');
+Route::get('/powerup&id={id}','PowerController@uplist');
+Route::post('/powerupdate','PowerController@update');
+Route::get('/poweraddform',function(){
+    return view('power.add');
+});
+Route::post('/poweradd','PowerController@add');
+Route::get('/rolelist', 'PowerController@rolelist');
+Route::get('/roleaddform', function(){
+    return view('power.roleadd');
+});
+Route::post('/roleadd','PowerController@roleadd');
+Route::get('/roledel/id={id}', 'PowerController@roledel');
+Route::get('/roleup&id={id}', 'PowerController@roleup');
+Route::post('/roleupdate','PowerController@roleupdate');
+
 
 /**
 *	会员管理  控制器为  VipController.php 
 */
 Route::get('/vip','VipController@index');
+Route::get('/vipdel','VipController@vipdel');
+Route::get('/vipupdate','VipController@vipupdate');
+Route::post('/vipfrom','VipController@vipfrom');
+Route::get('/vipinsert','VipController@vipinsert');
+Route::post('/vipinsertfrom','VipController@vipinsertfrom');
 Route::get('/rank','VipController@rank');
+Route::get('/company','VipController@company');
+Route::get('/companydel','VipController@companydel');
+
 
 /**
 *	地区管理 控制器为 AreaController.php
 */
 Route::get('/area','AreaController@index');
 Route::get('/addarea','AreaController@addarea');
+Route::get('/del_area','AreaController@del_area');
+Route::post('/insertarea','AreaController@insertarea');
 
 
 
@@ -55,6 +81,9 @@ Route::group(['prefix' => ''], function () {
     });
     Route::post('/typeaddbuy','TypeController@addbuy');
 });
+
+
+
 /**
 *	门店管理 控制器为	ShopController.php
 */
@@ -67,6 +96,12 @@ Route::get('/addshop','ShopController@addshop');
 */
 Route::get('/oldorder','OrderController@oldorder');
 Route::get('/neworder','OrderController@neworder');
+Route::get('/orderupdate','OrderController@up');
+Route::get('/orderdel','OrderController@del');
+Route::get('/noorder','OrderController@noorder');
+Route::get('/yisearch','OrderController@yisearch');
+Route::get('/weisearch','OrderController@weisearch');
+
 //return view('order/neworder');
 
 
