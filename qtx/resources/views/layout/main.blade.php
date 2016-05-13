@@ -9,8 +9,11 @@
 	<meta name="author" content="" />
 	
 	<title>Xenon - Extra</title>
-
-
+	<!-- 时间插件 -->
+	<link href="assets/css/jquery-ui.css" rel="stylesheet">
+    	<link href="assets/css/red-datepicker.css" rel="stylesheet">
+    	<!-- 时间插件 -->
+    	
 	<link rel="stylesheet" href="assets/css/fonts/linecons/css/linecons.css">
 	<link rel="stylesheet" href="assets/css/fonts/fontawesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="assets/css/bootstrap.css">
@@ -19,6 +22,7 @@
 	<link rel="stylesheet" href="assets/css/xenon-components.css">
 	<link rel="stylesheet" href="assets/css/xenon-skins.css">
 	<link rel="stylesheet" href="assets/css/custom.css">
+	<!-- 下拉搜索插件 -->
 	<link rel="stylesheet" href="assets/css/tinyselect.css">
 	<script src="assets/js/jquery-1.11.1.min.js"></script>
 
@@ -913,6 +917,7 @@
 	<script src="assets/js/resizeable.js"></script>
 	<script src="assets/js/joinable.js"></script>
 	<script src="assets/js/xenon-api.js"></script>
+	<!-- 下拉搜索 -->
 	<script src="assets/js/xenon-toggles.js"></script>
 
 
@@ -923,6 +928,11 @@
 	<!-- JavaScripts initializations and stuff -->
 	<script src="assets/js/xenon-custom.js"></script>
 	<script src="assets/js/tinyselect.js"></script>
+	
+	<!-- 时间插件 -->
+	<script type="text/javascript" src="assets/js/jquery-ui.js"></script>
+	<script type="text/javascript" src="assets/js/dateinput-ch-ZN.js"></script>
+	<!-- 时间插件 -->
 	
 </body>
 </html>	
