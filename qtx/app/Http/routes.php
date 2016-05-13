@@ -89,13 +89,12 @@ Route::group(['prefix' => ''], function () {
 */
 Route::get('/shop','ShopController@index');
 Route::get('/addshop','ShopController@addshop');
-
+Route::post('/addvalidate','ShopController@addvalidate');
 
 /**
 *	订单管理 控制器为 OrderController.php
 */
 Route::get('/oldorder','OrderController@oldorder');
-Route::get('/neworder','OrderController@neworder');
 Route::get('/orderupdate','OrderController@up');
 Route::get('/orderdel','OrderController@del');
 Route::get('/noorder','OrderController@noorder');
