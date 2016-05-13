@@ -213,6 +213,11 @@
 									<span class="title">管理会员等级</span>
 								</a>
 							</li>
+							<li>
+								<a href="{{ url('/company') }}">
+									<span class="title">企业用户</span>
+								</a>
+							</li>
 						</ul>
 					</li>
 					<li>
