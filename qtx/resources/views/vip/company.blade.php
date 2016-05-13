@@ -35,7 +35,7 @@
 				
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<a href="/vipinsert"><button class="btn btn-danger">添加</button></a>
+							<a href="/companyinsert"><button class="btn btn-danger">添加</button></a>
 							<button class="btn btn-danger" id='del'>删除</button>
 							<div class="panel-options">
 
@@ -66,11 +66,10 @@
 											<tr>
 												<th><input type="checkbox" class="ace" id='all'></th>
 												<th>id</th>
-												<th>学生名称</th>
+												<th>用户姓名</th>
 												<th>密码</th>
 												<th>手机号</th>
-												<th>所在地</th>
-												<th>学校</th>
+												<th>公司类型</th>
 												<th>创建时间</th>
 												<th>修改时间</th>
 												<th>上次登录ip</th>
@@ -87,9 +86,14 @@
     											<td>{!! $v -> user_id !!}</td>
     											<td>{!! $v -> user_name !!}</td>
     											<td>{!! $v -> user_password !!}</td>
-    											<td>{!! $v -> user_phone !!}</td>
-    											<td>{!! $v -> user_place !!}</td>
-    											<td>{!! $v -> user_school !!}</td>
+    											<td>
+    												 @if($v -> user_type == 0)
+			                                            {!! '消费' !!}
+			                                        @else
+			                                          {!! '兼职' !!}
+			                                         @endif
+    											</td>
+    											<td>{!! $v -> user_lastip !!}</td>
     											<td><?php echo date('Y-m-d H:i:s', $v->create_time ) ?></td>
     											<td><?php echo date("Y-m-d H:i:s", $v->updated_time) ?></td>
     											<td>{!! $v -> user_lastip !!}</td>
@@ -101,7 +105,7 @@
 			                                         @endif
     											</td>
     											<td><button id='id' value='{!! $v -> user_id !!}'>删除</button></td>
-    											<td><button><a href="vipupdate?id={!! $v -> user_id !!}">修改</a></button></td>
+    											<td><button><a href="companyupdate?id={!! $v -> user_id !!}">修改</a></button></td>
     										</tr>
 										</tbody>
 								@endforeach
@@ -119,21 +123,22 @@
 				$(document).on("click",'#id',function(){
 					if(confirm("确定要删除嘛？")){
 						var id = $(this).attr('value');
-						$.get('vipdel',{
+						$.get('companydel',{
 							id:id
 						},function(data){
-							if(data ==1){
+							alert(data)
+							/*if(data ==1){
 								alert('删除成功')
 							}else{
 								alert('删除失败')
-							}
+							}*/
 						})
 					}
 					
 				})
 			$(document).on("click",'#upid',function(){
 						var id = $(this).attr('value');
-						$.get('vipupdate',{
+						$.get('companyupdate',{
 							id:id
 						},function(data){
 							alert(data)
@@ -166,7 +171,7 @@
             }
             if(confirm("确定要删除嘛？")){
             	var arr=str.substr(1);
-	            $.get('/vipdel',{id:arr},function(txt){
+	            $.get('/companydel',{id:arr},function(txt){
 	            	//alert(txt)
 	                location.reload();
 	           })
