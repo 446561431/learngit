@@ -36,6 +36,8 @@ Route::get('/rank','VipController@rank');
 */
 Route::get('/area','AreaController@index');
 Route::get('/addarea','AreaController@addarea');
+Route::get('/del_area','AreaController@del_area');
+Route::post('/insertarea','AreaController@insertarea');
 
 
 
