@@ -2,6 +2,7 @@
 
 @section('content')
 
+
 <div class="page-title">
 				
 				<div class="title-env">
