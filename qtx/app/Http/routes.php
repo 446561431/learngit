@@ -29,7 +29,15 @@ Route::get('/power','PowerController@index');
 *	会员管理  控制器为  VipController.php 
 */
 Route::get('/vip','VipController@index');
+Route::get('/vipdel','VipController@vipdel');
+Route::get('/vipupdate','VipController@vipupdate');
+Route::post('/vipfrom','VipController@vipfrom');
+Route::get('/vipinsert','VipController@vipinsert');
+Route::post('/vipinsertfrom','VipController@vipinsertfrom');
 Route::get('/rank','VipController@rank');
+Route::get('/company','VipController@company');
+Route::get('/companydel','VipController@companydel');
+
 
 /**
 *	地区管理 控制器为 AreaController.php
@@ -69,6 +77,11 @@ Route::get('/addshop','ShopController@addshop');
 */
 Route::get('/oldorder','OrderController@oldorder');
 Route::get('/neworder','OrderController@neworder');
+Route::get('/orderupdate','OrderController@up');
+Route::get('/orderdel','OrderController@del');
+Route::get('/noorder','OrderController@noorder');
+Route::get('/yisearch','OrderController@yisearch');
+Route::get('/weisearch','OrderController@weisearch');
 //return view('order/neworder');
 
 
