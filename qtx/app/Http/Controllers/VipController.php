@@ -7,13 +7,14 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesResources;
 use App\Models\vip\Vip;
+use App\Models\vip\Company;
 use Request;
 use DB;
 
 header("content-type:text/html;charset=utf-8");
     class VipController extends Controller {   
 
-    	/**  
+    	/**
 		 *	会员管理首页
 		 *	分页，返回查询数据
     	*/
@@ -47,6 +48,7 @@ header("content-type:text/html;charset=utf-8");
     		$id = $_GET['id'];
     		$model = new Vip();
     		$arr = $model->seluser($id);
+            //print_r($arr);die;
     		return view('vip/vipupdate',['arr' => $arr]);
     	}
         /**
@@ -84,10 +86,7 @@ header("content-type:text/html;charset=utf-8");
         public function vipinsertfrom()
         {
             $arr = Request::all();
-            $arr['create_time'] = time();
-            $arr['updated_time'] = time();
-            $arr['user_lastlogin'] = time();
-            $arr['user_lastip'] = $_SERVER['SERVER_ADDR'];
+            
             $model = new Vip();
             $str = $model->insertvip($arr);
             if($str){
@@ -102,6 +101,33 @@ header("content-type:text/html;charset=utf-8");
         */
         public function rank()
         {
+
             return view('vip/rank');
+        }
+
+        /**
+         *   企业用户管理
+         *   主页显示
+        */
+        public function company()
+        {
+            $Models = new Company();
+            $arr = $Models->sel_company();
+            return view('vip/company',['arr' => $arr]);
+        }
+        /**
+         *   企业用户管理
+         *   删除，批量删除
+        */
+         public function companydel()
+        {   
+            $id = $_GET['id'];
+            $Models = new Company();
+            $str = $Models->del_user($id);
+            if($str){
+                echo "1";
+            }else{
+                echo "0";
+            }
         }
     }  

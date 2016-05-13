@@ -9,9 +9,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Vip extends Model
 {
-    protected $table = 'qtx_user_stu';
-    //protected $timestamps = false;
-    protected $primaryKey = 'user_id';
     /**
 	 *  	查询主页显示，分页
      *   返回查询用户表的所有数据
@@ -29,7 +26,7 @@ class Vip extends Model
                     'user_lastlogin',
                     'user_lastip',
                     'user_status'
-            )->paginate(2);
+            )->paginate(5);
     }
     /**
 	 *	要查询的数据
@@ -37,7 +34,9 @@ class Vip extends Model
 	 *	返回该id的数组
     */
     public function seluser($id){
-    	return $data = DB::table('qtx_user_stu')->where('user_id','=',$id)->first();
+    	return $data = DB::table('qtx_user_stu')->
+                        where('user_id','=',$id)->
+                        first();
     }
     /**
      *	删除,批量删除
@@ -78,9 +77,9 @@ class Vip extends Model
                         'user_phone' => $arr['user_phone'],
                         'user_place' => $arr['user_place'],
                         'user_school' => $arr['user_school'],
-                        'create_time' => $arr['create_time'],
-                        'updated_time' => $arr['updated_time'],
-                        'user_lastip' => $arr['user_lastip'],
+                        'create_time' => time(),
+                        'updated_time' => time(),
+                        'user_lastip' => $_SERVER['SERVER_ADDR'],
                         'user_status' => $arr['user_status']
             ]);
     }
