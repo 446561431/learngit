@@ -37,7 +37,7 @@
 					
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h3 class="panel-title">添加会员</h3>
+							<h3 class="panel-title">添加会员(企业)</h3>
 							<div class="panel-options">
 								<a href="#" data-toggle="panel">
 									<span class="collapse-icon">&ndash;</span>
@@ -49,7 +49,7 @@
 							</div>
 						</div>
 						<div class="panel-body">
-							{!! Form::open(array('url' => '/vipinsertfrom', 'method' => 'post','class' => 'form-horizontal','role' => 'form')) !!}
+							{!! Form::open(array('url' => '/comfrom', 'method' => 'post','class' => 'form-horizontal','role' => 'form')) !!}
 							<!--<form role="form" class="form-horizontal" action='/vipinsertfrom' method='post'>-->
 								<input type="hidden" name="_token" value="{{csrf_token()}}"/>
 								<div class="form-group">
@@ -88,16 +88,22 @@
 									</div>
 								</div>
 								<div class="form-group-separator"></div>
-								
+
 								<div class="form-group">
-									{!! Form::label('field-1', '用户学校', ['class' => 'col-sm-2 control-label']) !!}
+									{!! Form::label('field-1', '用户类型', ['class' => 'col-sm-2 control-label']) !!}
+									
 									<div class="col-sm-10">
-										{!! Form::text('user_school', null, ['class' => 'form-control','placeholder' => '请输入学校']) !!}
+										<div class="radio">
+											<label>
+												{!! Form::radio('user_type','0')!!}
+												兼职&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+												{!! Form::radio('user_type','1')!!}
+												消费
+											</label>
+										</div>
 									</div>
 								</div>
-								
 								<div class="form-group-separator"></div>
-								
 								<div class="form-group">
 									{!! Form::label('field-1', '是否启动', ['class' => 'col-sm-2 control-label']) !!}
 									
@@ -112,8 +118,7 @@
 										</div>
 									</div>
 								</div>
-								
-								  <div class="form-group-separator"></div>
+								<div class="form-group-separator"></div>
 								{!! Form::submit('添加', ['class' => 'btn btn-primary form-control','style' => 'width:20%']) !!}
 							<!--</form>-->
 							{!! Form::close() !!}

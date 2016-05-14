@@ -1,11 +1,6 @@
 @extends('layout.main')
 
 @section('content')
-
-
-
-
-
 			<div class="page-title">
 				
 				<div class="title-env">
@@ -49,7 +44,7 @@
 							</div>
 						</div>
 						<div class="panel-body">
-							{!! Form::open(array('url' => '/vipfrom', 'method' => 'post','class' => 'form-horizontal','role' => 'form')) !!}
+							{!! Form::open(array('url' => '/companyfrom', 'method' => 'post','class' => 'form-horizontal','role' => 'form')) !!}
 								<input type="hidden" name="_token" value="{{csrf_token()}}"/>
 								{!! Form::hidden('user_id', $arr -> user_id) !!}
 								<div class="form-group">
@@ -92,44 +87,60 @@
 								</div>
 								
 								<div class="form-group-separator"></div>
-								
 								<div class="form-group">
-									{!! Form::label('field-1', '学校', ['class' => 'col-sm-2 control-label']) !!}
+									{!! Form::label('field-1', '公司类型', ['class' => 'col-sm-2 control-label']) !!}
+									
 									<div class="col-sm-10">
-										{!! Form::text('user_school', $arr->user_school, ['class' => 'form-control']) !!}
+										<p>
+			                                    @if($arr -> user_type == 1)
+			                                        <label class="radio-inline">
+			                                            {!! Form::radio('user_type', '1', true) !!}
+			                                                消费
+			                                        </label>
+			                                        <label class="radio-inline">
+			                                            {!! Form::radio('user_type', '0') !!}
+			                                                兼职
+			                                        </label>
+			                                    @else
+			                                        <label class="radio-inline">
+			                                            {!! Form::radio('user_type', '1') !!}
+			                                                消费
+			                                        </label>
+			                                        <label class="radio-inline">
+			                                            {!! Form::radio('user_type', '0', true) !!}
+			                                                兼职
+			                                        </label>
+			                                    @endif
+                                </p>
 									</div>
 								</div>
 								
 								<div class="form-group-separator"></div>
-								
-								
 								<div class="form-group">
-									   {!! Form::label('field-1', '状态', ['class' => 'col-sm-2 control-label']) !!}
-
-			                            <div class="col-sm-10">
-			                                <p>
+									{!! Form::label('field-1', '状态', ['class' => 'col-sm-2 control-label']) !!}
+			                           <div class="col-sm-10">
+										<p>
 			                                    @if($arr -> user_status == 1)
 			                                        <label class="radio-inline">
 			                                            {!! Form::radio('user_status', '1', true) !!}
-			                                                是
+			                                                启用
 			                                        </label>
 			                                        <label class="radio-inline">
 			                                            {!! Form::radio('user_status', '0') !!}
-			                                                否
+			                                                禁用
 			                                        </label>
 			                                    @else
 			                                        <label class="radio-inline">
 			                                            {!! Form::radio('user_status', '1') !!}
-			                                                是
+			                                                启用
 			                                        </label>
 			                                        <label class="radio-inline">
 			                                            {!! Form::radio('user_status', '0', true) !!}
-			                                                否
+			                                                禁用
 			                                        </label>
 			                                    @endif
                                 </p>
-                            </div>
-   
+									</div>
 								</div>
 								  <div class="form-group-separator"></div>
 								<button class="btn btn-blue" value=''>修改<button>
