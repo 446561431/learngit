@@ -59,7 +59,7 @@
 
                         <!-- Basic Table -->
                         <strong>
-                            <a href="{{ url('/poweraddform') }}">
+                            <a href="{{ url('/useraddform') }}">
                                 <button class="btn btn-blue">添加</button>
                             </a>
                             <button class="btn btn-pink" id="delall">删除</button>
@@ -71,8 +71,8 @@
                                 <th><input type="checkbox" id="all"></th>
                                 <th>ID</th>
                                 <th>用户名称</th>
-                                <th>用户邮箱</th>
-                                <th>用户手机号</th>
+                               {{-- <th>用户邮箱</th>
+                                <th>用户手机号</th>--}}
                                 <th>创建时间</th>
                                 <th>修改时间</th>
                                 <th>是否启用</th>
@@ -92,17 +92,17 @@
                                     <td>
                                         {!! $v -> admin_name !!}
                                     </td>
-                                    <td>
+                                  {{--  <td>
                                         {!! $v -> admin_email !!}
                                     </td>
                                     <td>
                                         {!! $v -> admin_phone !!}
+                                    </td>--}}
+                                    <td>
+                                        {!! date("Y/m/d",$v -> created_time) !!}
                                     </td>
                                     <td>
-                                        {!! date("Y-m-d H:i:s",$v -> created_time) !!}
-                                    </td>
-                                    <td>
-                                        {!! date("Y-m-d H:i:s",$v -> updated_time) !!}
+                                        {!! date("Y/m/d",$v -> updated_time) !!}
                                     </td>
                                     <td>
                                         @if($v -> admin_status == 1)
@@ -112,6 +112,7 @@
                                         @endif
                                     </td>
                                     <td>
+                                        <a href="userrole&id={!! $v->admin_id !!}"><button class="btn btn-gray">角色信息</button></a>
                                         <a href="userup&id={!! $v->admin_id !!}"><button class="btn btn-gray">修改</button></a>
                                         <button class="btn btn-gray del" value="{!! $v -> admin_id !!}">删除</button>
                                     </td>

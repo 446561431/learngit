@@ -43,13 +43,12 @@
                     </div>
                 </div>
                 <div class="panel-body">
-                    {!! Form::open(['url' => 'userupdate', 'class' => 'form-horizontal','role' => 'form']) !!}
-                    {!! Form::hidden('admin_id', $data -> admin_id) !!}
+                    {!! Form::open(['url' => 'useradd', 'class' => 'form-horizontal','role' => 'form']) !!}
                     <div class="form-group">
                         {!! Form::label('field-1', '用户名称：', ['class' => 'col-sm-2 control-label']) !!}
 
                         <div class="col-sm-10">
-                            {!! Form::text('admin_name', $data->admin_name, ['class' => 'form-control', 'placeholder' => '请输入用户名称']) !!}
+                            {!! Form::text('admin_name', null, ['class' => 'form-control', 'placeholder' => '请输入用户名称']) !!}
                         </div>
 
                     </div>
@@ -60,7 +59,7 @@
                         {!! Form::label('field-1', '用户密码：', ['class' => 'col-sm-2 control-label']) !!}
 
                         <div class="col-sm-10">
-                            {!! Form::password('admin_password',['class' => 'form-control', 'placeholder' => '请输入密码(不输入则不会更改)']) !!}
+                            {!! Form::password('admin_password',['class' => 'form-control', 'placeholder' => '请输入密码']) !!}
                         </div>
                     </div>
 
@@ -70,7 +69,7 @@
                         {!! Form::label('field-1', '用户email：', ['class' => 'col-sm-2 control-label']) !!}
 
                         <div class="col-sm-10">
-                            {!! Form::email('admin_email', $data->admin_email, ['class' => 'form-control', 'placeholder' => '请输入邮箱']) !!}
+                            {!! Form::email('admin_email', null, ['class' => 'form-control', 'placeholder' => '请输入邮箱']) !!}
                         </div>
 
                     </div>
@@ -81,7 +80,7 @@
                         {!! Form::label('field-1', '用户手机号：', ['class' => 'col-sm-2 control-label']) !!}
 
                         <div class="col-sm-10">
-                            {!! Form::text('admin_phone', $data->admin_phone, ['class' => 'form-control', 'placeholder' => '请输入手机号码']) !!}
+                            {!! Form::text('admin_phone', null, ['class' => 'form-control', 'placeholder' => '请输入手机号码']) !!}
                         </div>
 
                     </div>
@@ -93,7 +92,6 @@
 
                         <div class="col-sm-10">
                             <p>
-                                @if($data -> admin_status == 1)
                                     <label class="radio-inline">
                                         {!! Form::radio('admin_status', '1', true) !!}
                                         是
@@ -102,16 +100,6 @@
                                         {!! Form::radio('admin_status', '0') !!}
                                         否
                                     </label>
-                                @else
-                                    <label class="radio-inline">
-                                        {!! Form::radio('admin_status', '1') !!}
-                                        是
-                                    </label>
-                                    <label class="radio-inline">
-                                        {!! Form::radio('admin_status', '0', true) !!}
-                                        否
-                                    </label>
-                                @endif
                             </p>
                         </div>
                     </div>
