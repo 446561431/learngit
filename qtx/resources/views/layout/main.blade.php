@@ -295,10 +295,27 @@
 						</ul>
 					</li>
 					<li>
-						<a href="{{ url('/power') }}">
-							<i class="linecons-star"></i>
+						<a href="javascript:void(0);">
+							<i class="linecons-database"></i>
 							<span class="title">权限管理</span>
 						</a>
+						<ul>
+							<li>
+								<a href="{{ url('/power') }}">
+									<span class="title">管理权限</span>
+								</a>
+							</li>
+							<li>
+								<a href="{{ url('/rolelist') }}">
+									<span class="title">管理角色</span>
+								</a>
+							</li>
+							<li>
+									<a href="{{ url('/userlist') }}">
+									<span class="title">管理用户</span>
+								</a>
+							</li>
+						</ul>
 					</li>
 				</ul>
 						
