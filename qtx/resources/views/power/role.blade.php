@@ -96,6 +96,7 @@
                                         @endif
                                     </td>
                                     <td>
+                                        <a href="role_node&id={!! $v->role_id !!}"><button class="btn btn-gray">添加权限</button></a>
                                         <a href="roleup&id={!! $v->role_id !!}"><button class="btn btn-gray">修改</button></a>
                                         <button class="btn btn-gray del" value="{!! $v -> role_id !!}">删除</button>
                                     </td>

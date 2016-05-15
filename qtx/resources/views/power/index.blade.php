@@ -158,11 +158,16 @@
                 var value = [];
                 $('.one:checked').each(function(){
                     value.push($(this).val())
+                    $(this).parent().parent().remove();
                 });
                 var id = value.join(",");
                 if(value.length != 0) {
-                    $.get('powerdelall&id='+id,function(data){
-                        alert(data);
+                    $.get('powerdel/id='+id,function(data){
+                       if(data == 1) {
+                            alert('删除成功');
+                        }else{
+                            alert('删除失败');
+                        }
                     })
                 }else {
                     alert('请先选择');

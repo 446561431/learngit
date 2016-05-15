@@ -23,6 +23,7 @@ Route::get('/', function(){
 /**
 *	权限管理 控制器名称为 PowerController.php 
 */
+//权限
 Route::get('/power','PowerController@index');
 Route::get('/powerdel/id={id}','PowerController@del');
 Route::get('/powerup&id={id}','PowerController@uplist');
@@ -31,6 +32,7 @@ Route::get('/poweraddform',function(){
     return view('power.add');
 });
 Route::post('/poweradd','PowerController@add');
+//角色
 Route::get('/rolelist', 'PowerController@rolelist');
 Route::get('/roleaddform', function(){
     return view('power.roleadd');
@@ -39,6 +41,19 @@ Route::post('/roleadd','PowerController@roleadd');
 Route::get('/roledel/id={id}', 'PowerController@roledel');
 Route::get('/roleup&id={id}', 'PowerController@roleup');
 Route::post('/roleupdate','PowerController@roleupdate');
+Route::get('role_node&id={id}', 'PowerController@rolenode');
+Route::post('/rolenodeadd','PowerController@rolenodeadd');
+//用户
+Route::get('/userlist', 'PowerController@user');
+Route::get('/userdel/id={id}', 'PowerController@userdel');
+Route::get('/userup&id={id}', 'PowerController@userup');
+Route::post('/userupdate','PowerController@userupdate');
+Route::get('/useraddform', function(){
+    return view('power.useradd');
+});
+Route::post('/useradd', 'PowerController@useradd');
+Route::get('/userrole&id={id}', 'PowerController@userrole');
+Route::post('/userroleadd','PowerController@userroleadd');
 
 
 /**
