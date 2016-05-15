@@ -117,6 +117,15 @@
 								{!! Form::submit('添加', ['class' => 'btn btn-primary form-control','style' => 'width:20%']) !!}
 							<!--</form>-->
 							{!! Form::close() !!}
+							@if (count($errors) > 0)
+					    <div class="alert alert-danger">
+					        <ul>
+					            @foreach ($errors->all() as $error)
+					                <li>{{ $error }}</li>
+					            @endforeach
+					        </ul>
+					    </div>
+					@endif
 						</div>
 					</div>
 					
