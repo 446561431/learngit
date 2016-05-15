@@ -1,7 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\models\Power;
+use App\Models\power\Power;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
