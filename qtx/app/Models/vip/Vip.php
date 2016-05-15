@@ -44,6 +44,7 @@ class Vip extends Model
      * 	返回是否删除成功
     */
     public function del_user($id){
+        echo $id;die;
     	return Vip::destroy(array($id));
     } 
 
