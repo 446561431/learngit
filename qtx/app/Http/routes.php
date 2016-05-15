@@ -74,7 +74,10 @@ Route::get('/companydel','VipController@companydel');
 *	地区管理 控制器为 AreaController.php
 */
 Route::get('/area','AreaController@index');
+Route::post('/update','AreaController@update');
 Route::get('/addarea','AreaController@addarea');
+Route::get('/up_area','AreaController@up_area');
+Route::get('/sel_area','AreaController@sel_area');
 Route::get('/del_area','AreaController@del_area');
 Route::post('/insertarea','AreaController@insertarea');
 

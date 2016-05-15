@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesResources;
 use App\Models\vip\Vip;
 use App\Models\vip\Compan;
-use Request;
+use Illuminate\Http\Request;
 use DB;
 
 header("content-type:text/html;charset=utf-8");
@@ -83,10 +83,17 @@ header("content-type:text/html;charset=utf-8");
          *   会员管理(普通用户)
          *   添加表单，提交的数据
         */
-        public function vipinsertfrom()
+        public function vipinsertfrom(Request $request)
         {
+            $this->validate($request, [
+                'user_name' => 'required|unique:posts|max:255',
+                'user_password' => 'required|min:6',
+                'user_phone' => 'required|size:11',
+                'user_place' => 'required',
+                'user_school' => 'required',
+                'user_status' => 'required'
+            ]);
             $arr = Request::all();
-            
             $model = new Vip();
             $str = $model->insertvip($arr);
             if($str){

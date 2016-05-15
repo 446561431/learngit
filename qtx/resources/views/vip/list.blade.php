@@ -173,8 +173,11 @@
             if(confirm("确定要删除嘛？")){
             	var arr=str.substr(1);
 	            $.get('/vipdel',{id:arr},function(txt){
-	            	//alert(txt)
-	                location.reload();
+	            	if(txt ==1){
+								alert('删除成功')
+							}else{
+								alert('删除失败')
+							}
 	           })
             }
             

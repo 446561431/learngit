@@ -50,35 +50,34 @@
 						</div>
 						<div class="panel-body">
 							
-							<!-- <form role="form" class="form-horizontal" method="post" action="<?php echo URL::to('insertarea') ?>"> -->
-								{!! Form::open(['url' => '/insertarea']) !!}
+								{!! Form::open(['url' => '/update']) !!}
 
 								<div class="form-group">
 									<label class="col-sm-2 control-label">城市列表：</label>
 									
 									<div class="col-sm-10">
 										<select class="form-control" name="sel_name" id="select1" style="width: 100%;">
-										@foreach($area as $v)
+										@foreach($area1 as $v)
 											<option value="{{ $v -> area_id }}">{{ $v -> area_name }}</option>
 										@endforeach
 										</select>
 									</div>
-								</div>		
+								</div>
 								<br><br><br>
 								<div class="form-group-separator"></div>
 
 								
 								<div class="form-group">
-									<label class="col-sm-2 control-label" for="field-1" >添加城市：</label>
+									<label class="col-sm-2 control-label" for="field-1" >修改城市：</label>
 									<div class="col-sm-10">
-										{!! Form::text('area_name', null, ['id' => 'field-1', 'class' => 'form-control','placeholder' => '请添加城市']) !!}
+									@foreach($area as $vv)
+									@endforeach
+										{!! Form::text('area_name', $vv -> area_name , ['id' => 'field-1', 'class' => 'form-control','placeholder' => '修改城市']) !!}
+										{!!Form::hidden('area_id',$vv -> area_id)!!}
 									</div>
-								</div>
-								
-	
-								 
+								</div>					 
 								    <div class="form-group">
-								      {!! Form::submit('添加', ['class' => 'btn btn-blue']) !!}
+								      {!! Form::submit('修改', ['class' => 'btn btn-blue']) !!}
 								      {!! Form::reset('重置', ['class' => 'btn btn-gray']) !!}
 								    </div>
 
@@ -93,13 +92,11 @@
 								    </div>
 								@endif 
 								<!-- 结束报错 -->
-
 								  {!! Form::close() !!}						
 								
 								<!-- <input type="submit" class="btn btn-blue" value="添加">
 								<input type="reset" class="btn btn-gray" value="重置"> -->
-							<!-- </form> -->
-							
+							<!-- </form> -->				
 						</div>
 					</div>
 					
